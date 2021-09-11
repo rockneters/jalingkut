@@ -1,6 +1,4 @@
 #!/bin/bash
-clear
-clear
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
@@ -44,7 +42,7 @@ ${comando[1]} > /dev/null 2>&1
 touch $HOME/fim
  ) > /dev/null 2>&1 &
  tput civis
-echo -ne "  \033[1;33mHOLD\033[1;37m- \033[1;33m["
+echo -ne "\033[1;33mHOLD\033[1;37m- \033[1;33m["
 while true; do
    for((i=0; i<18; i++)); do
    echo -ne "\033[1;31m#"
@@ -55,7 +53,7 @@ while true; do
    sleep 1s
    tput cuu1
    tput dl1
-   echo -ne "  \033[1;33mHOLD \033[1;37m- \033[1;33m["
+   echo -ne "\033[1;33mHOLD \033[1;37m- \033[1;33m["
 done
 echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
 tput cnorm
@@ -64,7 +62,7 @@ fun_tst () {
 speedtest --share > speed
 }
 echo ""
-echo -e "   \033[1;32mසේවාදායකයාගේ වේගය පරීක්ෂා කිරීම!\033[0m"
+echo -e "   \033[1;32mChecking client speed!\033[0m"
 echo ""
 HOLD 'fun_tst'
 echo ""
@@ -73,7 +71,7 @@ down=$(cat speed | sed -n '7 p' |awk -F :  {'print $NF'})
 upl=$(cat speed | sed -n '9 p' |awk -F :  {'print $NF'})
 lnk=$(cat speed | sed -n '10 p' |awk {'print $NF'})
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;32mPING (LATENCIA):\033[1;37m$png"
+echo -e "\033[1;32mPING (LATENCY):\033[1;37m$png"
 echo -e "\033[1;32mDOWNLOAD:\033[1;37m$down"
 echo -e "\033[1;32mUPLOAD:\033[1;37m$upl"
 echo -e "\033[1;32mLINK: \033[1;36m$lnk\033[0m"
@@ -179,15 +177,17 @@ _onlin=$(printf '%-5s' "$_onli")
 _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m   ♻️ ROCKNETSSH MANAGER | MOD BY JALINGKUT TRIX ♻️              \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[0;34m Telegram Admin: @RocknetStore\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;32mSystem            RAM MEMORY       PROCESSOR "
+echo -e "\033[0;34m=====================================================\033[0m"
+echo -e "\E[44;1;37m   ♻️ ROCKNETSSH MANAGER | MOD BY JALINGKUT TRIX ♻️   \E[0m"
+echo -e "\033[0;34m=====================================================\033[0m"
+echo -e "\033[0;34m            Telegram Admin: @RocknetStore            \033[0m"
+echo -e "\033[0;34m-----------------------------------------------------\033[0m"
+echo -e "\033[1;32mSystem             RAM MEMORY       PROCESSOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram \033[1;31mCore: \033[1;37m$_core\033[0m"
-echo -e "\033[1;31mHora: \033[1;37m$_hora     \033[1;31mIn use: \033[1;37m$_usor \033[1;31mIn use: \033[1;37m$_usop\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31mTime: \033[1;37m$_hora     \033[1;31mIn use: \033[1;37m$_usor \033[1;31mIn use: \033[1;37m$_usop\033[0m"
+echo -e "\033[0;34m-----------------------------------------------------\033[0m"
+echo -e "\033[1;32mOnline:\033[1;37m $_onlin     \033[1;31mExpired: \033[1;37m$_userexp \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
+echo -e "\033[0;34m-----------------------------------------------------\033[0m"
 [[ ! -e /tmp/att ]]  && {
     echo -e "\033[1;32mOnline:\033[1;37m $_onlin     \033[1;31mExpired: \033[1;37m$_userexp \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
     var01='\033[1;37m•'
@@ -195,9 +195,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
     echo -e "  \033[1;33m[\033[1;31m!\033[1;33m]  \033[1;32mලබා ගත හැකි යාවත්කාලීන කිරීමකි  \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
     var01="\033[1;32m!"
 }
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[0;34m  #BY:      Mod By Jalingkut trix       \033[0m"
-echo ""
+echo -e "\033[0;34m-----------------------------------------------------\033[0m"
 echo -e "\033[1;31m[\033[1;36m20\033[1;31m] \033[1;37m• \033[1;33mADD HOST \033[1;31m             [\033[1;36m26\033[1;31m] \033[1;37m• \033[1;33mCHANGE ROOT PASSWORD \033[1;31m
 [\033[1;36m21\033[1;31m] \033[1;37m• \033[1;33mREMOVER HOST \033[1;31m         [\033[1;36m27\033[1;31m] \033[1;37m• \033[1;33mAUTO EXECUTION $autm \033[1;31m
 [\033[1;36m22\033[1;31m] \033[1;37m• \033[1;33mRESTART SYSTEM \033[1;31m       [\033[1;36m29\033[1;31m] \033[1;37m• \033[1;33mREMOVER SCRIPT \033[1;31m
@@ -205,7 +203,7 @@ echo -e "\033[1;31m[\033[1;36m20\033[1;31m] \033[1;37m• \033[1;33mADD HOST \03
 [\033[1;36m24\033[1;31m] \033[1;37m• \033[1;33mBLOCK TORRENT $stsf\033[1;31m      [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mGET ouT \033[1;32m<\033[1;33m<\033[1;31m<\033[1;31m
 [\033[1;36m25\033[1;31m] \033[1;37m• \033[1;33mBOT TELEGRAM $stsbot\033[1;31m"       
 echo ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[0;34m-----------------------------------------------------\033[0m"
 echo ""
 echo -ne "\033[1;32mWHAT DO You WANT TO DO \033[1;33m?\033[1;31m?\033[1;37m : "; read x
 case "$x" in
@@ -294,44 +292,48 @@ _hora=$(printf '%(%H:%M:%S)T')
 _onlin=$(printf '%-5s' "$_onli")
 _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
-clear|
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m   ♻️ ROCKNETSSH MANAGER | MOD BY JALINGKUT TRIX ♻️              \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[0;34m Telegram Admin: @RocknetStore\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;32mSystem            RAM MEMORY        PROCESSOR "
+clear
+clear
+echo -e "\033[0;34m======================================================\033[0m"
+echo -e "\E[44;1;37m   ♻️ ROCKNETSSH MANAGER | MOD BY JALINGKUT TRIX ♻️   \E[0m"
+echo -e "\033[0;34m======================================================\033[0m"
+echo -e "\033[1;37m            Telegram Admin: \033[1;33m@RocknetStore            \033[0m"
+echo -e "\033[0;34m------------------------------------------------------\033[0m"
+echo -e "\033[1;32mSystem             RAM MEMORY       PROCESSOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram \033[1;31mCore: \033[1;37m$_core\033[0m"
-echo -e "\033[1;31mHora: \033[1;37m$_hora     \033[1;31mIn use: \033[1;37m$_usor \033[1;31mIn use: \033[1;37m$_usop\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;32mOnline:\033[1;37m $_onlin     \033[1;31mExpired: \033[1;37m$_userexp \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31mTime: \033[1;37m$_hora     \033[1;31mIn use: \033[1;37m$_usor \033[1;31mIn use: \033[1;37m$_usop\033[0m"
+echo -e "\033[0;34m------------------------------------------------------\033[0m"
+echo -e "\033[1;32mOnline:\033[1;37m $_onlin      \033[1;31mExpired: \033[1;37m$_userexp   \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
+echo -e "\033[0;34m======================================================\033[0m"
+echo -e "\033[0;34m[••] MENU SSH ----------------------------------------\033[0m"
+echo -e "\033[1;31m[01] \033[1;37m• \033[1;33mCREATE USER \t\t\033[1;31m[07] \033[1;37m• \033[1;33mCHANGE PASSWORD \033[0m"
+echo -e "\033[1;31m[02] \033[1;37m• \033[1;33mCREATE USER TESTS \t\033[1;31m[08] \033[1;37m• \033[1;33mREMOVE EXPIRED \033[0m"
+echo -e "\033[1;31m[03] \033[1;37m• \033[1;33mREMOVE USER \t\t\033[1;31m[09] \033[1;37m• \033[1;33mUSER REPORT \033[0m"
+echo -e "\033[1;31m[04] \033[1;37m• \033[1;33mMONITOR ONLINE \t\t\033[1;31m[10] \033[1;37m• \033[1;33mBACKUP USER\033[0m"
+echo -e "\033[1;31m[05] \033[1;37m• \033[1;33mCHANGE DATE \t\t\033[1;31m[11] \033[1;37m• \033[1;33mUSER-LIMIT $stsl \033[0m"
+echo -e "\033[1;31m[06] \033[1;37m• \033[1;33mCHANGE LIMIT \033[0m"           
 echo ""
-echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mCREATE USER \033[1;31m            [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mSPEEDTEST \033[1;31m
-[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mCREATE USER TESTS \033[1;31m    [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mBANNER \033[1;31m
-[\033[1;36m03\033[1;31m] \033[1;37m\033[1;37m• \033[1;33mREMOVE USER \033[1;31m            [\033[1;36m13\033[1;31m] \033[1;37m• \033[1;33mTRAFFIC \033[1;31m
-[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mMONITOR ONLINE \033[1;31m         [\033[1;36m14\033[1;31m] \033[1;37m• \033[1;33mOPTOMIZER \033[1;31m
-[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mCHANGE DATE \033[1;31m            [\033[1;36m15\033[1;31m] \033[1;37m• \033[1;33mBACKUP \033[1;31m
-[\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mCHANGE LIMIT \033[1;31m           [\033[1;36m16\033[1;31m] \033[1;37m• \033[1;33mUSER-LIMIT $stsl\033[1;31m
-[\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mCHANGE PASSWORD \033[1;31m        [\033[1;36m17\033[1;31m] \033[1;37m• \033[1;33mBAD VPN $stsu\033[1;31m
-[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mREMOVE EXPIRED \033[1;31m         [\033[1;36m18\033[1;31m] \033[1;37m• \033[1;33mINFO VPS \033[1;31m
-[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mUSER REPORT \033[1;31m            [\033[1;36m19\033[1;31m] \033[1;37m• \033[1;33mMORE \033[1;31m>\033[1;33m>\033[1;32m>\033[0m\033[1;31m
-[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mCONNECTION MODE \033[1;31m        [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mGO OUT \033[1;32m<\033[1;33m<\033[1;31m<\033[0m \033[0m"
+echo -e "\033[0;34m[••] SETTING -----------------------------------------\033[0m"
+echo -e "\033[1;31m[12] \033[1;37m• \033[1;33mCONNECTION MODE \t\t\033[1;31m[16] \033[1;37m• \033[1;33mBANNER \033[0m"
+echo -e "\033[1;31m[13] \033[1;37m• \033[1;33mSPEEDTEST	\t\033[1;31m[17] \033[1;37m• \033[1;33mBAD VPN $stsu \033[0m"
+echo -e "\033[1;31m[14] \033[1;37m• \033[1;33mTRAFFIC \t\t\t\033[1;31m[18] \033[1;37m• \033[1;33mINFO VPS \033[0m"
+echo -e "\033[1;31m[15] \033[1;37m• \033[1;33mOPTOMIZER	\t\033[1;31m[19] \033[1;37m• \033[1;33mMORE >> \033[0m"
 echo ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[0;34m[••] EXIT --------------------------------------------\033[0m"
+echo -e "\033[1;31m[00] \033[1;37m• \033[1;33mGO OUT << \033[0m"
 echo ""
-echo -ne "\033[1;32mWHAT DO You WANT TO DO \033[1;33m?\033[1;31m?\033[1;37m : "; read x
+echo -ne "\033[1;32mWHAT DO You WANT TO DO \033[1;33m?\033[1;31m?\033[1;37m : "; read x; clear
 
 case "$x" in 
    1 | 01)
    clear
    criarusuario
-   echo -ne "\n\033[1;31mENTER \033[1;33to return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33to return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
    2 | 02)
    clear
    criarteste
-   echo -ne "\n\033[1;31mENTER \033[1;33to return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33to return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
    3 | 03)
    clear
@@ -341,7 +343,7 @@ case "$x" in
    4 | 04)
    clear
  Port SSHmonitor
-   echo -ne "\n\033[1;31mENTER \033[1;33mවto return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mවto return to \033[1;32mMENU!\033[0m"; read; clear
    ;;      
    5 | 05)
    clear
@@ -367,38 +369,38 @@ case "$x" in
    9 | 09)
    clear
    infousers
-   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
-   10)
+   12)
    conexao
    exit;
    ;;
-   11)
+   13)
    clear
    velocity
-   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
-   12)
+   16)
    clear
    banner
    sleep 3
    ;;
-   13)
+   14)
    clear
    echo -e "\033[1;32mCTRL + C ක්ලික් කිරීමෙන් ඉවත් වීමට\033[1;36m"
    sleep 4
    nload
    ;;
-   14)
+   15)
    clear
    otimizar
-   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
-   15)
+   10)
    userbackup
-   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mto return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
-   16)
+   11)
    limit_ssh
    ;;
    17)
@@ -409,7 +411,7 @@ case "$x" in
    18)
    clear
    detalhes
-   echo -ne "\n\033[1;31mENTER \033[1;33mවto return to \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mවto return to \033[1;32mMENU!\033[0m"; read; clear
    ;;
    19)
    menu2
