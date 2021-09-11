@@ -31,7 +31,7 @@ GitUser="rockneters"
 #wget https://raw.githubusercontent.com/${GitUser}/jalingkut/aio/install/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
 #wget https://raw.githubusercontent.com/${GitUser}/jalingkut/aio/install/shadowsocksobfs.sh && chmod +x shadowsocksobfs.sh && screen -S ss ./shadowsocksobfs.sh
 wget https://raw.githubusercontent.com/${GitUser}/jalingkut/aio/install/ins-vt.sh && chmod +x ins-vt.sh && sed -i -e 's/\r$//' ins-vt.sh && screen -S v2ray ./ins-vt.sh
-3wget https://raw.githubusercontent.com/${GitUser}/jalingkut/aio/install/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+#wget https://raw.githubusercontent.com/${GitUser}/jalingkut/aio/install/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 #rm -f /root/ssh-vpn.sh
 rm -f /root/websocket.sh
 rm -f /root/sstp.sh
