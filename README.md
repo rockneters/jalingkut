@@ -21,7 +21,11 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ro
 ```
 
 -------------------------------------------------------------------------------
-               
+INSTALL V2RAY
+```
+wget https://raw.githubusercontent.com/rockneters/jalingkut/main/aio/setup.sh; chmod 777 setup.sh; ./setup.sh
+```
+
 SCRIPT ROCKNETSSH MANAGER is a copy with the appropriate set of features and tools
 Focus on usage and make Linux clients extremely easy to handle
 VPN has a pleasant interface that provides detailed information about the machine               
