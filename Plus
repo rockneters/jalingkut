@@ -110,7 +110,7 @@ fun_attlist () {
 fun_bar 'fun_attlist'
 
 echo ""
-echo -e "\033[1;33m[!] \033[1;32mINSTALL PACKAGE \033[1;33m[!]\033[0m"echo ""
+echo -e "\033[1;33m[!] \033[1;32mINSTALL PACKAGE \033[1;33m[!]\033[0m"
 echo -e "\033[1;33mMEMBUTUHKAN WAKTU LEBIH LAMA!\033[0m"
 echo ""
 inst_pct () {
@@ -135,4 +135,5 @@ echo -e "\033[1;33m • \033[1;32mINSTALLATION COMPLETED\033[1;33m • \033[0m"
 echo ""
 echo -e "\033[1;31m \033[1;33mMAIN COMMAND: \033[1;32mmenu\033[0m"
 rm $HOME/Plus && cat /dev/null > ~/.bash_history && history -c
+clear
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/rockneters/piturays/master/install.sh" && chmod +x install.sh && bash install.sh
